@@ -1,1 +1,139 @@
-@import "./normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --purple: rgba(0, 0, 255, 0.5);
+  --dark-purple: rgba(0, 0, 150, 0.5);
+  --light-purple: rgba(0, 0, 255, 0.2);
+  --white: rgba(255, 255, 255, 0.8);
+  --black: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.content {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "header header header header header header"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main"
+    "nav main main main main main";
+}
+
+/* *top section */
+header {
+  grid-area: header;
+  font-style: italic;
+  font-weight: bold;
+  background-color: var(--purple);
+  padding-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-grp {
+  color: var(--white);
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* *sidebar section */
+nav {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  grid-area: nav;
+  background-color: var(--light-purple);
+  color: var(--white);
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+li,
+.nav-project {
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+li:hover,
+.nav-project:hover {
+  cursor: pointer;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  background-color: var(--light-purple);
+  transition: all 0.3s;
+}
+
+svg {
+  width: 30px;
+  stroke: var(--dark-purple);
+}
+
+.nav-project {
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* *content section */
+main {
+  grid-area: main;
+  padding-left: 50px;
+  padding-top: 30px;
+  color: var(--black);
+}
+
+.main-title {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-title {
+  border-bottom: 1px solid var(--dark-purple);
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
