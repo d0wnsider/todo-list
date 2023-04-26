@@ -1,2 +1,4 @@
 import "../css/style.css";
-import "../modules/controller";
+import render from "./controller.js";
+
+render();
