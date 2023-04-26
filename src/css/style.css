@@ -6,6 +6,7 @@
   --light-purple: rgba(0, 0, 255, 0.2);
   --white: rgba(255, 255, 255, 0.8);
   --black: rgba(0, 0, 0, 0.7);
+  --gray: rgba(200, 200, 200, 0.7);
 }
 
 * {
@@ -15,6 +16,7 @@
 }
 
 body {
+  position: relative; /* *for 'position: absolute' of form */
   font-family: "Roboto", sans-serif;
 }
 
@@ -92,8 +94,7 @@ li,
   gap: 15px;
 }
 
-li:hover,
-.nav-project:hover {
+li:hover {
   cursor: pointer;
   border: 1px solid var(--white);
   border-radius: 5px;
@@ -107,10 +108,19 @@ svg {
 }
 
 .nav-project {
-  border: 1px solid transparent;
+  padding: 5px 5px;
+  font-size: 1.4rem;
+  border-top: 1px solid var(--dark-purple);
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 15px;
+}
+
+.project-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 /* *content section */
@@ -136,4 +146,50 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.form-project-cont {
+  padding: 20px 20px 80px 20px;
+  box-shadow: 0 0 10px 0 var(--purple);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.hide {
+  /* display: none; */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form-project {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.form-add {
+  padding: 10px;
+  font-size: 2rem;
+  font-style: italic;
+  border-top: 1px solid var(--dark-purple);
+  border-right: 1px solid var(--dark-purple);
+}
+
+.form-project label {
+  padding: 3px 0px;
+}
+
+.form-project input {
+  padding: 5px 10px;
+}
+
+.project-submit-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
