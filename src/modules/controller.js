@@ -1,4 +1,4 @@
-import showProjectForm from "./dom.js";
+import { showProjectForm, showTaskForm } from "./dom.js";
 
 function projectBtnListener() {
   const projectBtn = document.querySelector(".project-btn");
@@ -8,8 +8,17 @@ function projectBtnListener() {
   });
 }
 
+function taskBtnListener() {
+  const taskBtn = document.querySelector(".task-btn");
+  taskBtn.addEventListener("click", (e) => {
+    // e.preventDefault();
+    showTaskForm();
+  });
+}
+
 function listeners() {
   projectBtnListener();
+  taskBtnListener();
 }
 
 function render() {

@@ -3,4 +3,9 @@ function showProjectForm() {
   formProjectCont.classList.toggle("hide");
 }
 
-export default showProjectForm;
+function showTaskForm() {
+  const formTaskCont = document.querySelector(".form-task-cont");
+  formTaskCont.classList.toggle("hide");
+}
+
+export { showProjectForm, showTaskForm };

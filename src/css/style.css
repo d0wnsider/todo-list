@@ -126,7 +126,8 @@ svg {
   gap: 15px;
 }
 
-.project-btn {
+.project-btn,
+.task-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -158,7 +159,8 @@ main {
   align-items: center;
 }
 
-.form-project-cont {
+.form-project-cont,
+.form-task-cont {
   padding: 20px 20px 80px 20px;
   box-shadow: 0 0 10px 0 var(--purple);
   position: absolute;
@@ -169,12 +171,12 @@ main {
 }
 
 .hide {
-  /* display: none; */
-  opacity: 0;
+  display: none;
   transition: opacity 0.3s ease-in-out;
 }
 
-.form-project {
+.form-project,
+.form-task {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -190,15 +192,18 @@ main {
   border-right: 1px solid var(--dark-purple);
 }
 
-.form-project label {
+.form-project label,
+.form-task label {
   padding: 3px 0px;
 }
 
-.form-project input {
+.form-project label,
+.form-task input {
   padding: 5px 10px;
 }
 
-.project-submit-btn {
+.project-submit-btn,
+.task-submit-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
