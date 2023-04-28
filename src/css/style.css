@@ -127,7 +127,8 @@ svg {
 }
 
 .project-btn,
-.task-btn {
+.task-btn,
+.add-task-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -135,6 +136,7 @@ svg {
 
 /* *content section */
 main {
+  position: relative;
   grid-area: main;
   padding-left: 50px;
   padding-top: 30px;
@@ -207,4 +209,18 @@ main {
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+
+/** task content  */
+.task-content {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-task-content {
+  padding: 10px;
+  background-color: var(--gray);
 }

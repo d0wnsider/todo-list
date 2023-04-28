@@ -8,4 +8,18 @@ function showTaskForm() {
   formTaskCont.classList.toggle("hide");
 }
 
-export { showProjectForm, showTaskForm };
+function createTask() {
+  const taskContent = document.querySelector(".task-content");
+  const task = document.createElement("div");
+  task.classList.add("add-task-content");
+  task.textContent = selectors.userTitle.value;
+  taskContent.appendChild(task);
+}
+
+const selectors = {
+  userTitle: document.querySelector("#title"),
+  addTaskBtn: document.querySelector(".add-task-btn"),
+  form: document.querySelector(".form-task"),
+};
+
+export { showProjectForm, showTaskForm, selectors, createTask };
