@@ -8,6 +8,10 @@ function showTaskForm() {
   formTaskCont.classList.toggle("hide");
 }
 
+function showBlurBG() {
+  selectors.cont.classList.toggle("blur-bg");
+}
+
 function createTask() {
   const taskContent = document.querySelector(".task-content");
   const task = document.createElement("div");
@@ -19,7 +23,9 @@ function createTask() {
 const selectors = {
   userTitle: document.querySelector("#title"),
   addTaskBtn: document.querySelector(".add-task-btn"),
-  form: document.querySelector(".form-task"),
+  taskForm: document.querySelector(".form-task"),
+  cont: document.querySelector(".cont"),
+  blurBG: document.querySelector(".blur-bg"),
 };
 
-export { showProjectForm, showTaskForm, selectors, createTask };
+export { showProjectForm, showTaskForm, showBlurBG, selectors, createTask };

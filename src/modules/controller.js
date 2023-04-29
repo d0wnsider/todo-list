@@ -1,4 +1,10 @@
-import { showProjectForm, showTaskForm, selectors, createTask } from "./dom.js";
+import {
+  showProjectForm,
+  showTaskForm,
+  showBlurBG,
+  selectors,
+  createTask,
+} from "./dom.js";
 import Task from "./task.js";
 
 const projects = [];
@@ -18,7 +24,8 @@ function taskBtnSubmit() {
     e.preventDefault();
     createTask();
     showTaskForm();
-    selectors.form.reset();
+    showBlurBG();
+    selectors.taskForm.reset();
   });
 }
 
@@ -33,6 +40,7 @@ function taskBtnListener() {
   const taskBtn = document.querySelector(".task-btn");
   taskBtn.addEventListener("click", (e) => {
     showTaskForm();
+    showBlurBG();
   });
 }
 
