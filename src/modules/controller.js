@@ -4,6 +4,7 @@ import {
   showBlurBG,
   selectors,
   createTask,
+  createProject,
 } from "./dom.js";
 import Task from "./task.js";
 
@@ -19,13 +20,13 @@ function createTaskDefault() {
   projects.push(taskDefault);
 }
 
-function taskBtnSubmit() {
-  selectors.addTaskBtn.addEventListener("click", (e) => {
+function projectBtnSubmit() {
+  selectors.addProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    createTask();
-    showTaskForm();
+    createProject();
+    showProjectForm();
     showBlurBG();
-    selectors.taskForm.reset();
+    selectors.projectForm.reset();
   });
 }
 
@@ -33,6 +34,17 @@ function projectBtnListener() {
   const projectBtn = document.querySelector(".project-btn");
   projectBtn.addEventListener("click", (e) => {
     showProjectForm();
+    showBlurBG();
+  });
+}
+
+function taskBtnSubmit() {
+  selectors.addTaskBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    createTask();
+    showTaskForm();
+    showBlurBG();
+    selectors.taskForm.reset();
   });
 }
 
@@ -46,6 +58,7 @@ function taskBtnListener() {
 
 function listeners() {
   projectBtnListener();
+  projectBtnSubmit();
   taskBtnListener();
   taskBtnSubmit();
 }

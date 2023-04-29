@@ -133,6 +133,7 @@ svg {
 
 .project-btn,
 .task-btn,
+.add-project-btn,
 .add-task-btn {
   cursor: pointer;
   background-color: transparent;
@@ -229,6 +230,11 @@ main {
 .add-task-content {
   width: 90%;
   padding: 10px;
+  background-color: var(--gray);
+}
+.add-project-content {
+  position: absolute;
+  padding: 5px;
   background-color: var(--gray);
 }
 
