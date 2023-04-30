@@ -233,7 +233,7 @@ main {
   background-color: var(--gray);
 }
 .add-project-content {
-  position: absolute;
+  width: 100%;
   padding: 5px;
   background-color: var(--gray);
 }

@@ -7,9 +7,11 @@ import {
   createProject,
 } from "./dom.js";
 import Task from "./task.js";
+import Project from "./project.js";
 
 const projects = [];
-
+const tasks = [];
+//  task object
 function createTaskDefault() {
   const taskDefault = new Task(
     selectors.userTitle.value,
@@ -17,15 +19,22 @@ function createTaskDefault() {
     "4 / 29 / 2023",
     "high"
   );
-  projects.push(taskDefault);
+  tasks.push(taskDefault);
+}
+// project object
+function createProjectDefault() {
+  const projectDefault = new Project(selectors.userProject.value); //TODO put value in
+  projects.push(projectDefault);
 }
 
 function projectBtnSubmit() {
   selectors.addProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
     createProject();
+    createProjectDefault();
     showProjectForm();
     showBlurBG();
+    console.log(projects);
     selectors.projectForm.reset();
   });
 }
@@ -42,9 +51,11 @@ function taskBtnSubmit() {
   selectors.addTaskBtn.addEventListener("click", (e) => {
     e.preventDefault();
     createTask();
+    createTaskDefault();
     showTaskForm();
     showBlurBG();
     selectors.taskForm.reset();
+    console.log(tasks);
   });
 }
 
@@ -65,7 +76,8 @@ function listeners() {
 //* program flow
 function render() {
   listeners();
-  createTaskDefault();
+  // createTaskDefault();
+  // createProjectDefault();
 }
 
 export { render };
