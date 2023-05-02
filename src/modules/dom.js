@@ -12,7 +12,7 @@ function showBlurBG() {
   selectors.cont.classList.toggle("blur-bg");
 }
 
-function createProject() {
+function showProject() {
   const navProj = document.querySelector(".nav-projects");
   const project = document.createElement("div");
   project.classList.add("add-project-content");
@@ -20,17 +20,39 @@ function createProject() {
   navProj.appendChild(project);
 }
 
-function createTask() {
+function showProjectDefault() {
+  const navProj = document.querySelector(".nav-projects");
+  const project = document.createElement("div");
+  project.classList.add("add-project-content");
+  project.textContent = "Default Project";
+  navProj.appendChild(project);
+}
+
+function showTask() {
   const taskContent = document.querySelector(".task-content");
   const task = document.createElement("div");
   task.classList.add("add-task-content");
-  task.textContent = selectors.userTitle.value;
+  task.textContent = selectors.userTitle.value; //TODO other properties
+  taskContent.appendChild(task);
+}
+
+function showTaskDefault() {
+  const taskContent = document.querySelector(".task-content");
+  const task = document.createElement("div");
+  task.classList.add("add-task-content");
+  task.textContent = "laundry";
+  task.textContent += "too much clothes";
+  task.textContent += "5/1/23";
+  task.textContent += "high";
   taskContent.appendChild(task);
 }
 
 const selectors = {
   userProject: document.querySelector("#project"),
   userTitle: document.querySelector("#title"),
+  userDesc: document.querySelector("#desc"),
+  userDueDate: document.querySelector("#due-date"),
+  userPriority: document.querySelector("#priority"),
   addTaskBtn: document.querySelector(".add-task-btn"),
   addProjectBtn: document.querySelector(".add-project-btn"),
   taskForm: document.querySelector(".form-task"),
@@ -44,6 +66,8 @@ export {
   showTaskForm,
   showBlurBG,
   selectors,
-  createTask,
-  createProject,
+  showTask,
+  showTaskDefault,
+  showProject,
+  showProjectDefault,
 };
