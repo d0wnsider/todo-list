@@ -33,6 +33,9 @@ function showTask() {
   const task = document.createElement("div");
   task.classList.add("add-task-content");
   task.textContent = selectors.userTitle.value; //TODO other properties
+  task.textContent += selectors.userDesc.value;
+  task.textContent += selectors.userDueDate.value;
+  task.textContent += selectors.userPriority.value;
   taskContent.appendChild(task);
 }
 

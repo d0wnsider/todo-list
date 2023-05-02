@@ -17,10 +17,10 @@ const projects = [];
 //  task object
 function createTask() {
   const task = new Task(
-    selectors.userTitle.value
-    // selectors.userDesc.value,
-    // selectors.userDueDate.value,
-    // selectors.userPriority.value,
+    selectors.userTitle.value,
+    selectors.userDesc.value,
+    selectors.userDueDate.value,
+    selectors.userPriority.value
   );
   // how to put task in a selected project?
   console.log(projects);
@@ -49,7 +49,6 @@ function createProjectDefault() {
   const projectDefault = new Project("Default Project", true);
   projects.push(projectDefault);
   showProjectDefault();
-  console.log(projects);
 }
 
 function projectBtnSubmit() {
