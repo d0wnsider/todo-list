@@ -43,7 +43,21 @@
       <form action="" class="form-task">
         <p class="form-add">Add Task</p>
         <label>
-          <input type="text" id="title" />
+          <input type="text" id="title" placeholder="Enter task here" />
+        </label>
+        <label>
+          <input type="text" id="desc" placeholder="Enter description here" />
+        </label>
+        <label>
+          <input type="date" id="due-date" placeholder="Enter due-date here" />
+        </label>
+        <label>
+          <select name="prio" id="priority">
+            <option value="">Choose Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
         </label>
         <button class="add-task-btn" type="submit">
           <svg
