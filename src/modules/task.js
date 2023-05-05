@@ -1,3 +1,5 @@
+import { Project } from "./project";
+
 class Task {
   constructor(title, description, dueDate, priority) {
     this.title = title;

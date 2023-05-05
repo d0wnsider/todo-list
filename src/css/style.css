@@ -116,6 +116,15 @@ li:hover {
   transition: all 0.3s;
 }
 
+li.checked {
+  text-decoration: line-through;
+  cursor: pointer;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  background-color: var(--gray);
+  transition: all 0.3s;
+}
+
 svg {
   width: 30px;
   stroke: var(--dark-purple);
@@ -230,12 +239,11 @@ main {
 .add-task-content {
   width: 90%;
   padding: 10px;
-  background-color: var(--gray);
 }
+
 .add-project-content {
   width: 100%;
   padding: 5px;
-  background-color: var(--gray);
 }
 
 .cont {

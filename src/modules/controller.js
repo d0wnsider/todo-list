@@ -12,9 +12,7 @@ import Task from "./task.js";
 import Project from "./project.js";
 
 const projects = [];
-// const tasks = []; // how to select a project for tasks?
 
-//  task object
 function createTask() {
   const task = new Task(
     selectors.userTitle.value,
@@ -23,7 +21,6 @@ function createTask() {
     selectors.userPriority.value
   );
   // how to put task in a selected project?
-  console.log(projects);
   projects[0].addTask(task);
 }
 
@@ -36,7 +33,6 @@ function createTaskDefault() {
   );
   projects[0].addTask(taskDefault);
   showTaskDefault();
-  console.log(projects);
 }
 
 // project object
@@ -50,6 +46,17 @@ function createProjectDefault() {
   projects.push(projectDefault);
   showProjectDefault();
 }
+// TODO project selection
+// function selectProject() {
+//   const projectContent = document.querySelectorAll(".add-project-content");
+//   projectContent.forEach(function (element, index) {
+//     element.addEventListener("click", function () {
+//       projects[index].active = true;
+//       console.log(projects);
+//     });
+//     console.log(projects);
+//   });
+// }
 
 function projectBtnSubmit() {
   selectors.addProjectBtn.addEventListener("click", (e) => {
@@ -60,6 +67,7 @@ function projectBtnSubmit() {
     showBlurBG();
     console.log(projects);
     selectors.projectForm.reset();
+    // selectProject();
   });
 }
 
@@ -91,7 +99,12 @@ function taskBtnListener() {
   });
 }
 
+selectors.taskContent.addEventListener("click", (e) => {
+  e.target.classList.toggle("checked");
+});
+
 function listeners() {
+  // selectProject();
   projectBtnListener();
   projectBtnSubmit();
   taskBtnListener();
@@ -99,9 +112,9 @@ function listeners() {
 }
 //* program flow
 function render() {
-  listeners();
   createProjectDefault();
   createTaskDefault();
+  listeners();
 }
 
 export { render };

@@ -14,43 +14,47 @@ function showBlurBG() {
 
 function showProject() {
   const navProj = document.querySelector(".nav-projects");
-  const project = document.createElement("div");
+  const project = document.createElement("li");
   project.classList.add("add-project-content");
   project.textContent = selectors.userProject.value;
+  selectors.mainTitle.textContent = project.textContent;
   navProj.appendChild(project);
 }
 
 function showProjectDefault() {
   const navProj = document.querySelector(".nav-projects");
-  const project = document.createElement("div");
+  const project = document.createElement("li");
   project.classList.add("add-project-content");
   project.textContent = "Default Project";
+  selectors.mainTitle.textContent = project.textContent;
   navProj.appendChild(project);
 }
 
 function showTask() {
-  const taskContent = document.querySelector(".task-content");
-  const task = document.createElement("div");
+  const task = document.createElement("li");
   task.classList.add("add-task-content");
-  task.textContent = selectors.userTitle.value; //TODO other properties
+  task.textContent = selectors.userTitle.value;
   task.textContent += selectors.userDesc.value;
   task.textContent += selectors.userDueDate.value;
   task.textContent += selectors.userPriority.value;
-  taskContent.appendChild(task);
+  selectors.taskContent.appendChild(task);
 }
 
 function showTaskDefault() {
-  const taskContent = document.querySelector(".task-content");
-  const task = document.createElement("div");
+  const task = document.createElement("li");
   task.classList.add("add-task-content");
   task.textContent = "laundry";
   task.textContent += "too much clothes";
   task.textContent += "5/1/23";
   task.textContent += "high";
-  taskContent.appendChild(task);
+  selectors.taskContent.appendChild(task);
 }
 
+// taskContainerListener
+
 const selectors = {
+  taskContent: document.querySelector(".task-content"),
+  mainTitle: document.querySelector(".main-title"),
   userProject: document.querySelector("#project"),
   userTitle: document.querySelector("#title"),
   userDesc: document.querySelector("#desc"),
