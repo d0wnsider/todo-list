@@ -103,6 +103,10 @@ selectors.taskContent.addEventListener("click", (e) => {
   e.target.classList.toggle("checked");
 });
 
+selectors.navProject.addEventListener("click", (e) => {
+  selectors.mainTitle.textContent = e.target.textContent;
+});
+
 function listeners() {
   // selectProject();
   projectBtnListener();

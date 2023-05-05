@@ -17,7 +17,7 @@ function showProject() {
   const project = document.createElement("li");
   project.classList.add("add-project-content");
   project.textContent = selectors.userProject.value;
-  selectors.mainTitle.textContent = project.textContent;
+  selectors.mainTitle.textContent = `Default Project`;
   navProj.appendChild(project);
 }
 
@@ -26,7 +26,7 @@ function showProjectDefault() {
   const project = document.createElement("li");
   project.classList.add("add-project-content");
   project.textContent = "Default Project";
-  selectors.mainTitle.textContent = project.textContent;
+  selectors.mainTitle.textContent = `Default Project`;
   navProj.appendChild(project);
 }
 
@@ -53,6 +53,7 @@ function showTaskDefault() {
 // taskContainerListener
 
 const selectors = {
+  navProject: document.querySelector(".nav-projects"),
   taskContent: document.querySelector(".task-content"),
   mainTitle: document.querySelector(".main-title"),
   userProject: document.querySelector("#project"),

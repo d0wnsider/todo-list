@@ -1,9 +1,8 @@
 <!-- TODO functions -->
 
-- change project div and task to li's
-- selecting a project shows todo's list (DOM module)
-- delete method inside project
-- edit project and task
+- show project title when clicked / - selecting a project shows todo's list (DOM module)
+- delete method inside project / - DOM
+- edit project and task / DOM
 
 <!-- TODO Refactor -->
 
