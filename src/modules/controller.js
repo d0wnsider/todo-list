@@ -4,9 +4,7 @@ import {
   showBlurBG,
   selectors,
   showTask,
-  showTaskDefault,
   showProject,
-  showProjectDefault,
 } from "./dom.js";
 import Task from "./task.js";
 import Project from "./project.js";
@@ -20,19 +18,8 @@ function createTask() {
     selectors.userDueDate.value,
     selectors.userPriority.value
   );
-  // how to put task in a selected project?
+  // TODO how to put task in a selected project?
   projects[0].addTask(task);
-}
-
-function createTaskDefault() {
-  const taskDefault = new Task(
-    "laundry",
-    "too much clothes!!!",
-    "5/1/23",
-    "high"
-  );
-  projects[0].addTask(taskDefault);
-  showTaskDefault();
 }
 
 // project object
@@ -41,33 +28,28 @@ function createProject() {
   projects.push(project);
 }
 
-function createProjectDefault() {
-  const projectDefault = new Project("Default Project", true);
-  projects.push(projectDefault);
-  showProjectDefault();
+function displayProjects() {
+  const navProj = document.querySelector(".nav-projects");
+  const li = document.createElement("li");
+
+  projects.forEach((project, index) => {
+    li.setAttribute("data-index", index);
+    li.classList.add("add-project-content");
+    li.textContent = `${project.name}`;
+    selectors.mainTitle.textContent = `${project.name}`;
+    navProj.appendChild(li);
+  });
 }
-// TODO project selection
-// function selectProject() {
-//   const projectContent = document.querySelectorAll(".add-project-content");
-//   projectContent.forEach(function (element, index) {
-//     element.addEventListener("click", function () {
-//       projects[index].active = true;
-//       console.log(projects);
-//     });
-//     console.log(projects);
-//   });
-// }
 
 function projectBtnSubmit() {
   selectors.addProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    showProject();
     createProject();
+    displayProjects();
     showProjectForm();
     showBlurBG();
-    console.log(projects);
     selectors.projectForm.reset();
-    // selectProject();
+    console.log(projects);
   });
 }
 
@@ -108,7 +90,6 @@ selectors.navProject.addEventListener("click", (e) => {
 });
 
 function listeners() {
-  // selectProject();
   projectBtnListener();
   projectBtnSubmit();
   taskBtnListener();
@@ -116,8 +97,6 @@ function listeners() {
 }
 //* program flow
 function render() {
-  createProjectDefault();
-  createTaskDefault();
   listeners();
 }
 
