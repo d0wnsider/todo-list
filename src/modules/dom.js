@@ -1,3 +1,5 @@
+import { deleteTask } from "./controller.js";
+
 function showProjectForm() {
   const formProjectCont = document.querySelector(".form-project-cont");
   formProjectCont.classList.toggle("hide");
@@ -19,16 +21,8 @@ function showTask() {
   task.textContent += selectors.userDesc.value;
   task.textContent += selectors.userDueDate.value;
   task.textContent += selectors.userPriority.value;
-  // deleteBtn();
+  deleteTask(task);
   selectors.taskContent.appendChild(task);
-}
-
-function deleteBtn(li) {
-  const deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("btn", "btn-outline-danger");
-  deleteBtn.setAttribute("type", "button");
-  deleteBtn.textContent = "Delete";
-  li.appendChild(deleteBtn);
 }
 
 const selectors = {
@@ -48,11 +42,4 @@ const selectors = {
   blurBG: document.querySelector(".blur-bg"),
 };
 
-export {
-  showProjectForm,
-  showTaskForm,
-  showBlurBG,
-  selectors,
-  showTask,
-  deleteBtn,
-};
+export { showProjectForm, showTaskForm, showBlurBG, selectors, showTask };
