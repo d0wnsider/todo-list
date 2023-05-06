@@ -9,6 +9,7 @@ import Task from "./task.js";
 import Project from "./project.js";
 
 const projects = [];
+let selectedProject = "";
 
 function createTask() {
   const task = new Task(
@@ -17,7 +18,7 @@ function createTask() {
     selectors.userDueDate.value,
     selectors.userPriority.value
   );
-  projects[0].addTask(task);
+  projects[selectedProject].addTask(task);
 }
 
 function displayTask(index) {
@@ -43,8 +44,8 @@ selectors.navProject.addEventListener("click", (e) => {
   });
   e.target.classList.add("active");
   selectors.mainTitle.textContent = e.target.textContent;
-  const index = selectedProjectIndex(e.target);
-  displayTask(index);
+  selectedProject = selectedProjectIndex(e.target);
+  displayTask(selectedProject);
   console.log(projects);
 });
 
@@ -95,9 +96,7 @@ function taskBtnSubmit() {
   selectors.addTaskBtn.addEventListener("click", (e) => {
     e.preventDefault();
     showTask();
-    // TODO how to get selected project for creating task
-    const index = selectedProjectIndex(e.target);
-    createTask(index);
+    createTask();
     showTaskForm();
     showBlurBG();
     selectors.taskForm.reset();
