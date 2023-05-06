@@ -116,12 +116,20 @@ li:hover {
   transition: all 0.3s;
 }
 
-li.checked {
+.checked {
   text-decoration: line-through;
   cursor: pointer;
   border: 1px solid var(--white);
   border-radius: 5px;
   background-color: var(--gray);
+  transition: all 0.3s;
+}
+
+.active {
+  cursor: pointer;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  background-color: var(--light-purple);
   transition: all 0.3s;
 }
 
