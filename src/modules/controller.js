@@ -4,6 +4,7 @@ import {
   showBlurBG,
   selectors,
   showTask,
+  deleteBtn,
 } from "./dom.js";
 import Task from "./task.js";
 import Project from "./project.js";
@@ -23,6 +24,7 @@ function createTask() {
 
 function displayTask(index) {
   selectors.taskContent.textContent = "";
+
   projects[index].tasks.forEach((task) => {
     const li = document.createElement("li");
     li.classList.add("add-task-content");
@@ -30,6 +32,8 @@ function displayTask(index) {
     li.textContent += task.description;
     li.textContent += task.dueDate;
     li.textContent += task.priority;
+    // appending a btn from bootstrap
+    deleteBtn(li);
     selectors.taskContent.appendChild(li);
   });
 }
@@ -111,9 +115,10 @@ function taskBtnListener() {
     showBlurBG();
   });
 }
-
+// task content
 selectors.taskContent.addEventListener("click", (e) => {
   e.target.classList.toggle("checked");
+  console.log(selectedProject);
 });
 
 function listeners() {

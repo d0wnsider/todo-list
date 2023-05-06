@@ -8,6 +8,10 @@ class Project {
   addTask(task) {
     this.tasks.push(task);
   }
+
+  deleteTask(task) {
+    this.tasks.splice(task, 1);
+  }
 }
 
 export default Project;
