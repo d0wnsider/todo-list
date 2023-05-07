@@ -98,6 +98,7 @@ nav {
 ul {
   list-style: none;
   margin-bottom: 40px;
+  padding: 0;
 }
 
 li,

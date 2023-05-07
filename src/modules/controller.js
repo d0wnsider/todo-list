@@ -96,6 +96,9 @@ function displayProjects() {
     selectors.mainTitle.textContent = `${project.name}`;
     navProj.appendChild(li);
   });
+  if (li.dataset.index === "0") {
+    li.classList.add("active");
+  }
 }
 
 function projectBtnSubmit() {
