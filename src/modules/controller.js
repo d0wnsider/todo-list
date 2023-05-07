@@ -9,8 +9,8 @@ import Task from "./task.js";
 import Project from "./project.js";
 
 const projects = [];
-let selectedProject = "";
-let selectedTask = "";
+let selectedProject = "0";
+let selectedTask = "0";
 
 function createTask() {
   const task = new Task(

@@ -15,7 +15,6 @@
 <!-- TODO Refactor -->
 
 - stored the selected project in a global variable, how can I change it?
-- ughhh my delete btn program flow is shitttttt, all of em :(
 - functional programming approach or OOP approach ugh, observed this too late
   so my program comprises of functional, with sideeffects and oop oh well
 - put all query to selectors object, not sure if this good or not in global aspect
