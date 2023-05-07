@@ -221,12 +221,11 @@ main {
 
 .form-project label,
 .form-task label {
-  padding: 3px 0px;
+  padding: 5px;
 }
 
-.form-project label,
-.form-task input {
-  padding: 5px 10px;
+.form-project input {
+  padding: 5px 36px;
 }
 
 .project-submit-btn,

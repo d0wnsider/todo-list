@@ -1,6 +1,7 @@
 <!-- TODO functions -->
 
 - edit project and task - DOM
+- validation for forms
 - date-fns
 - local storage
 - details or summary of task / drop down or another modal box

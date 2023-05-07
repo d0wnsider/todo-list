@@ -104,11 +104,19 @@ function displayProjects() {
 function projectBtnSubmit() {
   selectors.addProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
+
+    const projectInput = document.querySelector("#project");
+    if (projectInput.value === "") {
+      // alert("Please enter your name");
+      projectInput.classList.add("is-invalid");
+      return;
+    }
     createProject();
     displayProjects();
     showProjectForm();
     showBlurBG();
     selectors.projectForm.reset();
+    projectInput.classList.remove("is-invalid");
   });
 }
 
