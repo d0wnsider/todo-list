@@ -131,11 +131,37 @@ function projectBtnListener() {
 function taskBtnSubmit() {
   selectors.addTaskBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    if (selectors.userTitle.value === "") {
+      selectors.userTitle.classList.add("is-invalid");
+    } else if (selectors.userTitle.value) {
+      selectors.userTitle.classList.remove("is-invalid");
+      selectors.userTitle.classList.add("is-valid");
+    }
+    if (selectors.userDesc.value === "") {
+      selectors.userDesc.classList.add("is-invalid");
+    } else if (selectors.userDesc.value) {
+      selectors.userDesc.classList.remove("is-invalid");
+      selectors.userDesc.classList.add("is-valid");
+    }
+    if (selectors.userDueDate.value === "") {
+      selectors.userDueDate.classList.add("is-invalid");
+    } else if (selectors.userDueDate.value) {
+      selectors.userDueDate.classList.remove("is-invalid");
+      selectors.userDueDate.classList.add("is-valid");
+    }
+    if (selectors.userPriority.value === "") {
+      selectors.userPriority.classList.add("is-invalid");
+      return;
+    }
     showTask();
     createTask();
     showTaskForm();
     showBlurBG();
     selectors.taskForm.reset();
+    selectors.userTitle.classList.remove("is-invalid", "is-valid");
+    selectors.userDesc.classList.remove("is-invalid", "is-valid");
+    selectors.userDueDate.classList.remove("is-invalid", "is-valid");
+    selectors.userPriority.classList.remove("is-invalid", "is-valid");
   });
 }
 

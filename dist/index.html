@@ -19,28 +19,16 @@
     <div class="form-project-cont hide">
       <form action="" class="form-project">
         <p class="form-add">Add Project</p>
-        <label
-          >Title
-          <input type="text" id="project" class="form-control" />
-        </label>
-        <button class="add-project-btn" type="submit">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-arrow-up-right-circle"
-            width="44"
-            height="44"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="#2c3e50"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <circle cx="12" cy="12" r="9" />
-            <line x1="15" y1="9" x2="9" y2="15" />
-            <polyline points="15 15 15 9 9 9" />
-          </svg>
+        <input
+          type="text"
+          id="project"
+          class="form-control"
+          minlength="1"
+          maxlength="22"
+          placeholder="Enter Project Name"
+        />
+        <button class="add-project-btn btn btn-primary" type="submit">
+          Add
         </button>
       </form>
     </div>
@@ -49,16 +37,33 @@
       <form action="" class="form-task">
         <p class="form-add">Add Task</p>
         <label>
-          <input type="text" id="title" placeholder="Enter task here" />
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            placeholder="Enter task here"
+            required
+          />
         </label>
         <label>
-          <input type="text" id="desc" placeholder="Enter description here" />
+          <textarea
+            type="text"
+            id="desc"
+            class="form-control"
+            placeholder="Enter description here"
+            rows="5"
+          ></textarea>
         </label>
         <label>
-          <input type="date" id="due-date" placeholder="Enter due-date here" />
+          <input
+            type="date"
+            id="due-date"
+            class="form-control"
+            placeholder="Enter due-date here"
+          />
         </label>
         <label>
-          <select name="prio" id="priority">
+          <select name="prio" id="priority" class="form-select">
             <option value="">Choose Priority</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
@@ -132,7 +137,7 @@
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <rect x="4" y="4" width="16" height="16" rx="2" />
                   <path d="M4 13h3l3 3h4l3 -3h3" /></svg
-                >Inbox
+                >All
               </li>
               <li>
                 <svg
@@ -159,27 +164,7 @@
             <div>
               <p class="nav-project">
                 Projects
-                <button class="project-btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-folder-plus"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"
-                    />
-                    <line x1="12" y1="10" x2="12" y2="16" />
-                    <line x1="9" y1="13" x2="15" y2="13" />
-                  </svg>
-                </button>
+                <button class="project-btn btn btn-primary">+</button>
               </p>
             </div>
             <ul class="nav-projects"></ul>
@@ -191,27 +176,7 @@
             <div class="task-title-cont">
               <p class="task-title">
                 Tasks
-                <button class="task-btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-folder-plus"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"
-                    />
-                    <line x1="12" y1="10" x2="12" y2="16" />
-                    <line x1="9" y1="13" x2="15" y2="13" />
-                  </svg>
-                </button>
+                <button class="task-btn btn btn-primary">+</button>
               </p>
               <!-- TODO put tasks here -->
               <ul class="task-content"></ul>
