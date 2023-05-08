@@ -15,14 +15,26 @@ function showBlurBG() {
 }
 
 function showTask() {
+  const taskContainer = document.createElement("div");
+  const titleContainer = document.createElement("div");
+  const dueDateContainer = document.createElement("div");
+  const prioContainer = document.createElement("div");
   const task = document.createElement("li");
   task.classList.add("add-task-content");
-  task.textContent = selectors.userTitle.value;
-  task.textContent += selectors.userDesc.value;
-  task.textContent += selectors.userDueDate.value;
-  task.textContent += selectors.userPriority.value;
-  deleteTask(task);
-  selectors.taskContent.appendChild(task);
+  taskContainer.classList.add("add-task-container");
+  titleContainer.textContent = selectors.userTitle.value;
+  dueDateContainer.textContent += selectors.userDueDate.value;
+  prioContainer.textContent += selectors.userPriority.value;
+  taskContainer.appendChild(titleContainer);
+  taskContainer.appendChild(dueDateContainer);
+  taskContainer.appendChild(prioContainer);
+
+  task.appendChild(titleContainer);
+  task.appendChild(dueDateContainer);
+  task.appendChild(prioContainer);
+  taskContainer.appendChild(task);
+  deleteTask(taskContainer);
+  selectors.taskContent.appendChild(taskContainer);
 }
 
 const selectors = {
@@ -31,7 +43,6 @@ const selectors = {
   mainTitle: document.querySelector(".main-title"),
   userProject: document.querySelector("#project"),
   userTitle: document.querySelector("#title"),
-  userDesc: document.querySelector("#desc"),
   userDueDate: document.querySelector("#due-date"),
   userPriority: document.querySelector("#priority"),
   addTaskBtn: document.querySelector(".add-task-btn"),

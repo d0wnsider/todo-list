@@ -105,7 +105,6 @@ ul {
 
 li,
 .nav-project {
-  margin-bottom: 5px;
   border: 1px solid transparent;
   display: flex;
   align-items: center;
@@ -253,9 +252,20 @@ main {
   gap: 10px;
 }
 
+.add-task-container {
+  margin-bottom: 5px;
+  width: 55vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .add-task-content {
   width: 90%;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .add-project-content {

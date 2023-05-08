@@ -15,19 +15,18 @@ let selectedTask = "0";
 function createTask() {
   const task = new Task(
     selectors.userTitle.value,
-    selectors.userDesc.value,
     selectors.userDueDate.value,
     selectors.userPriority.value
   );
   projects[selectedProject].addTask(task);
 }
 
-function deleteTask(li) {
+function deleteTask(taskContainer) {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("btn", "btn-outline-danger");
   deleteBtn.setAttribute("type", "button");
   deleteBtn.textContent = "Delete";
-  li.appendChild(deleteBtn);
+  taskContainer.appendChild(deleteBtn);
 
   // delete btn
   deleteBtn.addEventListener("click", (e) => {
@@ -44,15 +43,23 @@ function displayTask(index) {
 
   projects[index].tasks.forEach((task, index) => {
     const li = document.createElement("li");
+    const taskContainer = document.createElement("div");
+    const titleContainer = document.createElement("div");
+    const dueDateContainer = document.createElement("div");
+    const prioContainer = document.createElement("div");
     li.classList.add("add-task-content");
+    taskContainer.classList.add("add-task-container");
     li.setAttribute("data-index", index);
-    li.textContent = task.title;
-    li.textContent += task.description;
-    li.textContent += task.dueDate;
-    li.textContent += task.priority;
+    titleContainer.textContent = task.title;
+    dueDateContainer.textContent += task.dueDate;
+    prioContainer.textContent += task.priority;
     // appending a btn from bootstrap
-    deleteTask(li);
-    selectors.taskContent.appendChild(li);
+    li.appendChild(titleContainer);
+    li.appendChild(dueDateContainer);
+    li.appendChild(prioContainer);
+    taskContainer.appendChild(li);
+    deleteTask(taskContainer);
+    selectors.taskContent.appendChild(taskContainer);
   });
 }
 
@@ -137,12 +144,6 @@ function taskBtnSubmit() {
       selectors.userTitle.classList.remove("is-invalid");
       selectors.userTitle.classList.add("is-valid");
     }
-    if (selectors.userDesc.value === "") {
-      selectors.userDesc.classList.add("is-invalid");
-    } else if (selectors.userDesc.value) {
-      selectors.userDesc.classList.remove("is-invalid");
-      selectors.userDesc.classList.add("is-valid");
-    }
     if (selectors.userDueDate.value === "") {
       selectors.userDueDate.classList.add("is-invalid");
     } else if (selectors.userDueDate.value) {
@@ -159,7 +160,6 @@ function taskBtnSubmit() {
     showBlurBG();
     selectors.taskForm.reset();
     selectors.userTitle.classList.remove("is-invalid", "is-valid");
-    selectors.userDesc.classList.remove("is-invalid", "is-valid");
     selectors.userDueDate.classList.remove("is-invalid", "is-valid");
     selectors.userPriority.classList.remove("is-invalid", "is-valid");
   });
