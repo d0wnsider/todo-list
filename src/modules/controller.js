@@ -176,7 +176,7 @@ function taskBtnListener() {
 function createLiEventListener(li) {
   if (li) {
     li.addEventListener("click", (e) => {
-      e.target.classList.toggle("checked");
+      li.classList.toggle("checked");
     });
   } else {
     console.log(":(");
