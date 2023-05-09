@@ -1,4 +1,4 @@
-import { deleteTask } from "./controller.js";
+import { deleteTask, createLiEventListener } from "./controller.js";
 
 function showProjectForm() {
   const formProjectCont = document.querySelector(".form-project-cont");
@@ -34,10 +34,12 @@ function showTask() {
   task.appendChild(prioContainer);
   taskContainer.appendChild(task);
   deleteTask(taskContainer);
+  createLiEventListener(task);
   selectors.taskContent.appendChild(taskContainer);
 }
 
 const selectors = {
+  li: document.querySelector(".add-task-content"),
   navProject: document.querySelector(".nav-projects"),
   taskContent: document.querySelector(".task-content"),
   mainTitle: document.querySelector(".main-title"),

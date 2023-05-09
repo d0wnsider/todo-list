@@ -59,6 +59,7 @@ function displayTask(index) {
     li.appendChild(prioContainer);
     taskContainer.appendChild(li);
     deleteTask(taskContainer);
+    createLiEventListener(li);
     selectors.taskContent.appendChild(taskContainer);
   });
 }
@@ -114,7 +115,6 @@ function projectBtnSubmit() {
 
     const projectInput = document.querySelector("#project");
     if (projectInput.value === "") {
-      // alert("Please enter your name");
       projectInput.classList.add("is-invalid");
       return;
     }
@@ -172,10 +172,16 @@ function taskBtnListener() {
     showBlurBG();
   });
 }
-// task content
-selectors.taskContent.addEventListener("click", (e) => {
-  e.target.classList.toggle("checked");
-});
+//TODO task content
+function createLiEventListener(li) {
+  if (li) {
+    li.addEventListener("click", (e) => {
+      e.target.classList.toggle("checked");
+    });
+  } else {
+    console.log(":(");
+  }
+}
 
 function listeners() {
   projectBtnListener();
@@ -188,4 +194,4 @@ function render() {
   listeners();
 }
 
-export { render, deleteTask };
+export { render, deleteTask, createLiEventListener };
