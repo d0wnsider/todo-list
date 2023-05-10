@@ -8,10 +8,30 @@ import {
 import Task from "./task.js";
 import Project from "./project.js";
 
-const projects = [];
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
 let selectedProject = "0";
 let selectedTask = "0";
 
+if (localStorage.getItem("projects")) {
+  displayProjects();
+  displayTask(selectedTask);
+}
+// copies all properties, methods from object to target object
+projects = projects.map(function (projectData) {
+  const project = Object.assign(new Project(), projectData); // Create an instance of the Project class
+  return project;
+});
+
+// local storage
+function createStorage() {
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+function getStorage() {
+  JSON.parse(localStorage.getItem("projects")) || [];
+}
+// TODO not adding because of this line
+// TODO projects[selectedProject].addTask(task);
 function createTask() {
   const task = new Task(
     selectors.userTitle.value,
@@ -31,10 +51,12 @@ function deleteTask(taskContainer) {
   // delete btn
   deleteBtn.addEventListener("click", (e) => {
     const parent = e.target.parentNode;
-    parent.remove(parent);
+    const sibling = e.target.previousElementSibling;
     // getting task index for deletion in database
-    selectedTask = selectedTaskIndex(e.target);
+    selectedTask = selectedTaskIndex(sibling);
+    console.log(projects[selectedProject]);
     projects[selectedProject].deleteTask(selectedTask);
+    parent.remove(parent);
   });
 }
 
@@ -72,10 +94,15 @@ selectors.navProject.addEventListener("click", (e) => {
       liItems.classList.remove("active");
     }
   });
-  e.target.classList.add("active");
+  if (e.target !== selectors.navProject) {
+    e.target.classList.add("active");
+  } else {
+    return;
+  }
   selectors.mainTitle.textContent = e.target.textContent;
   selectedProject = selectedProjectIndex(e.target);
   displayTask(selectedProject);
+  createStorage();
   console.log(projects);
 });
 
@@ -94,19 +121,20 @@ function selectedTaskIndex(task) {
 }
 
 function displayProjects() {
-  const navProj = document.querySelector(".nav-projects");
-  const li = document.createElement("li");
-
+  selectors.navProject.textContent = "";
   projects.forEach((project, index) => {
+    const navProj = document.querySelector(".nav-projects");
+    const li = document.createElement("li");
     li.setAttribute("data-index", index);
     li.classList.add("add-project-content");
     li.textContent = `${project.name}`;
     selectors.mainTitle.textContent = `${project.name}`;
     navProj.appendChild(li);
+    if (li.dataset.index === "0") {
+      li.classList.add("active");
+    }
   });
-  if (li.dataset.index === "0") {
-    li.classList.add("active");
-  }
+  selectors.mainTitle.textContent = `${projects[0].name}`;
 }
 
 function projectBtnSubmit() {
@@ -124,6 +152,7 @@ function projectBtnSubmit() {
     showBlurBG();
     selectors.projectForm.reset();
     projectInput.classList.remove("is-invalid");
+    createStorage();
   });
 }
 
@@ -162,6 +191,7 @@ function taskBtnSubmit() {
     selectors.userTitle.classList.remove("is-invalid", "is-valid");
     selectors.userDueDate.classList.remove("is-invalid", "is-valid");
     selectors.userPriority.classList.remove("is-invalid", "is-valid");
+    createStorage();
   });
 }
 
@@ -172,7 +202,7 @@ function taskBtnListener() {
     showBlurBG();
   });
 }
-//TODO task content
+
 function createLiEventListener(li) {
   if (li) {
     li.addEventListener("click", (e) => {

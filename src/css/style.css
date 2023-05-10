@@ -119,6 +119,15 @@ li:hover {
   transition: all 0.3s;
 }
 
+input {
+  border: none;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
 .checked {
   text-decoration: line-through;
   cursor: pointer;
