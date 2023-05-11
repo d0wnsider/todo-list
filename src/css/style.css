@@ -111,6 +111,15 @@ li,
   gap: 15px;
 }
 
+.li-container {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-outline-danger {
+  border: none;
+}
+
 li:hover {
   cursor: pointer;
   border: 1px solid var(--white);

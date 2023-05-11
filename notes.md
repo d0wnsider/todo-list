@@ -1,8 +1,8 @@
 <!-- TODO functions -->
 
+- delete project
 - edit project and task - DOM
 - date-fns
-- local storage
 - all projects
 - today projects
 - default project and task

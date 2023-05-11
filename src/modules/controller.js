@@ -27,11 +27,6 @@ function createStorage() {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
 
-function getStorage() {
-  JSON.parse(localStorage.getItem("projects")) || [];
-}
-// TODO not adding because of this line
-// TODO projects[selectedProject].addTask(task);
 function createTask() {
   const task = new Task(
     selectors.userTitle.value,
@@ -57,8 +52,33 @@ function deleteTask(taskContainer) {
     console.log(projects[selectedProject]);
     projects[selectedProject].deleteTask(selectedTask);
     parent.remove(parent);
+    createStorage();
   });
 }
+// // TODO delete project
+// function deleteProject(liContainer) {
+//   const deleteBtn = document.createElement("button");
+//   deleteBtn.classList.add("btn", "btn-outline-danger");
+//   deleteBtn.setAttribute("type", "button");
+//   deleteBtn.textContent = "x";
+//   liContainer.appendChild(deleteBtn);
+
+//   // delete btn
+//   deleteBtn.addEventListener("click", (e) => {
+//     // const parent = e.target.parentNode;
+
+//     const sibling = e.target.previousElementSibling;
+//     // getting task index for deletion in database
+//     // selectedTask = selectedTaskIndex(sibling);
+//     // console.log(sibling);
+//     // console.log(projects[selectedProject]);
+//     // projects.splice(selectedProject, 1);
+//     // parent.remove(parent);
+//     localStorage.removeItem(projects[selectedProject]);
+//     // createStorage();
+//     console.log(projects);
+//   });
+// }
 
 function displayTask(index) {
   selectors.taskContent.textContent = "";
@@ -124,12 +144,16 @@ function displayProjects() {
   selectors.navProject.textContent = "";
   projects.forEach((project, index) => {
     const navProj = document.querySelector(".nav-projects");
+    const liContainer = document.createElement("div");
     const li = document.createElement("li");
+    liContainer.classList.add("li-container");
     li.setAttribute("data-index", index);
     li.classList.add("add-project-content");
     li.textContent = `${project.name}`;
     selectors.mainTitle.textContent = `${project.name}`;
-    navProj.appendChild(li);
+    liContainer.appendChild(li);
+    // deleteProject(liContainer);
+    navProj.appendChild(liContainer);
     if (li.dataset.index === "0") {
       li.classList.add("active");
     }
