@@ -55,34 +55,31 @@ function deleteTask(taskContainer) {
     createStorage();
   });
 }
-// // TODO delete project
-// function deleteProject(liContainer) {
-//   const deleteBtn = document.createElement("button");
-//   deleteBtn.classList.add("btn", "btn-outline-danger");
-//   deleteBtn.setAttribute("type", "button");
-//   deleteBtn.textContent = "x";
-//   liContainer.appendChild(deleteBtn);
+// TODO delete project
+// delete's the one task
+// delete's the proejct display
+function deleteProject(liContainer) {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("btn", "btn-outline-danger");
+  deleteBtn.setAttribute("type", "button");
+  deleteBtn.textContent = "x";
+  liContainer.appendChild(deleteBtn);
 
-//   // delete btn
-//   deleteBtn.addEventListener("click", (e) => {
-//     // const parent = e.target.parentNode;
-
-//     const sibling = e.target.previousElementSibling;
-//     // getting task index for deletion in database
-//     // selectedTask = selectedTaskIndex(sibling);
-//     // console.log(sibling);
-//     // console.log(projects[selectedProject]);
-//     // projects.splice(selectedProject, 1);
-//     // parent.remove(parent);
-//     localStorage.removeItem(projects[selectedProject]);
-//     // createStorage();
-//     console.log(projects);
-//   });
-// }
+  // delete btn
+  deleteBtn.addEventListener("click", (e) => {
+    const parent = e.target.parentNode;
+    const sibling = e.target.previousElementSibling;
+    selectedProject = selectedProjectIndex(sibling);
+    // console.log(selectedProject);
+    projects.splice(selectedProject, 1);
+    parent.remove(parent);
+    createStorage();
+  });
+}
 
 function displayTask(index) {
   selectors.taskContent.textContent = "";
-
+  console.log(projects[index]);
   projects[index].tasks.forEach((task, index) => {
     const li = document.createElement("li");
     const taskContainer = document.createElement("div");
@@ -121,7 +118,9 @@ selectors.navProject.addEventListener("click", (e) => {
   }
   selectors.mainTitle.textContent = e.target.textContent;
   selectedProject = selectedProjectIndex(e.target);
-  displayTask(selectedProject);
+  if (selectedProject) {
+    displayTask(selectedProject);
+  }
   createStorage();
   console.log(projects);
 });
@@ -152,7 +151,7 @@ function displayProjects() {
     li.textContent = `${project.name}`;
     selectors.mainTitle.textContent = `${project.name}`;
     liContainer.appendChild(li);
-    // deleteProject(liContainer);
+    deleteProject(liContainer);
     navProj.appendChild(liContainer);
     if (li.dataset.index === "0") {
       li.classList.add("active");
