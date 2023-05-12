@@ -76,7 +76,6 @@ function deleteProject(liContainer) {
 
 function displayTask(index) {
   selectors.taskContent.textContent = "";
-  console.log(projects[index]);
   projects[index].tasks.forEach((task, index) => {
     const li = document.createElement("li");
     const taskContainer = document.createElement("div");
@@ -84,6 +83,7 @@ function displayTask(index) {
     const dueDateContainer = document.createElement("div");
     const prioContainer = document.createElement("div");
     li.classList.add("add-task-content");
+    li.contentEditable = true;
     taskContainer.classList.add("add-task-container");
     li.setAttribute("data-index", index);
     titleContainer.textContent = task.title;
@@ -230,8 +230,17 @@ function taskBtnListener() {
 
 function createLiEventListener(li) {
   if (li) {
-    li.addEventListener("click", (e) => {
-      li.classList.toggle("checked");
+    li.addEventListener("keypress", (e) => {
+      // li.classList.toggle("checked");
+      // how to change task inside storage
+      if (e.key === "Enter") {
+        // lose autofocus
+        e.target.blur();
+        selectedTask = selectedTaskIndex(e.target);
+        projects[selectedProject].tasks[selectedTask].title =
+          e.target.firstElementChild.textContent;
+        createStorage();
+      }
     });
   } else {
     console.log(":(");
