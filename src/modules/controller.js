@@ -55,9 +55,7 @@ function deleteTask(taskContainer) {
     createStorage();
   });
 }
-// TODO delete project
-// delete's the one task
-// delete's the proejct display
+
 function deleteProject(liContainer) {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("btn", "btn-outline-danger");
@@ -70,7 +68,6 @@ function deleteProject(liContainer) {
     const parent = e.target.parentNode;
     const sibling = e.target.previousElementSibling;
     selectedProject = selectedProjectIndex(sibling);
-    // console.log(selectedProject);
     projects.splice(selectedProject, 1);
     parent.remove(parent);
     createStorage();
@@ -122,6 +119,11 @@ selectors.navProject.addEventListener("click", (e) => {
     displayTask(selectedProject);
   }
   createStorage();
+  // deleting project key if no more projects
+  if (projects && projects.length === 0) {
+    localStorage.removeItem("projects");
+    console.log("rmv");
+  }
   console.log(projects);
 });
 
