@@ -4,6 +4,7 @@
 ## About
 * ToDo List app
 * Add, edit and delete projects and tasks.
+* Web Storage API (Local Storage)
 
 ## Tools
 * HTML
