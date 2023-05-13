@@ -1,10 +1,8 @@
 <!-- TODO functions -->
 
-- edit project and task - DOM
 - date-fns
 - all projects
 - today projects
-- default project and task
 
 <!-- TODO fix -->
 

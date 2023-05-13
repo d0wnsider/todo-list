@@ -80,12 +80,14 @@ function displayTask(index) {
     const li = document.createElement("li");
     const taskContainer = document.createElement("div");
     const titleContainer = document.createElement("div");
-    const dueDateContainer = document.createElement("div");
+    const dueDateContainer = document.createElement("input");
     const prioContainer = document.createElement("div");
     li.classList.add("add-task-content");
+    dueDateContainer.type = "date";
     li.contentEditable = true;
     taskContainer.classList.add("add-task-container");
     li.setAttribute("data-index", index);
+    dueDateContainer.setAttribute("value", task.dueDate);
     titleContainer.textContent = task.title;
     dueDateContainer.textContent += task.dueDate;
     prioContainer.textContent += task.priority;
@@ -227,18 +229,23 @@ function taskBtnListener() {
     showBlurBG();
   });
 }
-
+// editing task
 function createLiEventListener(li) {
   if (li) {
     li.addEventListener("keypress", (e) => {
-      // li.classList.toggle("checked");
-      // how to change task inside storage
       if (e.key === "Enter") {
         // lose autofocus
         e.target.blur();
         selectedTask = selectedTaskIndex(e.target);
         projects[selectedProject].tasks[selectedTask].title =
           e.target.firstElementChild.textContent;
+        createStorage();
+      }
+    });
+    li.addEventListener("input", (e) => {
+      if (e.target.type === "date") {
+        selectedTask = selectedTaskIndex(e.target.parentNode);
+        projects[selectedProject].tasks[selectedTask].dueDate = e.target.value;
         createStorage();
       }
     });

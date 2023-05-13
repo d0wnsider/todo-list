@@ -5,7 +5,7 @@
   --dark-purple: rgba(0, 0, 150, 0.5);
   --light-purple: rgba(0, 0, 255, 0.2);
   --white: rgba(255, 255, 255, 0.8);
-  --black: rgba(0, 0, 0, 0.7);
+  --black: rgba(0, 0, 0, 0.8);
   --gray: rgba(200, 200, 200, 0.7);
   --gray2: rgba(200, 200, 255, 0.4);
 }
@@ -280,6 +280,10 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.add-task-content div:first-child {
+  width: 70%;
 }
 
 .add-project-content {

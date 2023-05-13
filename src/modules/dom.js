@@ -17,11 +17,14 @@ function showBlurBG() {
 function showTask() {
   const taskContainer = document.createElement("div");
   const titleContainer = document.createElement("div");
-  const dueDateContainer = document.createElement("div");
+  const dueDateContainer = document.createElement("input");
   const prioContainer = document.createElement("div");
   const task = document.createElement("li");
   task.classList.add("add-task-content");
   taskContainer.classList.add("add-task-container");
+  dueDateContainer.type = "date";
+  task.contentEditable = true;
+  dueDateContainer.setAttribute("value", selectors.userDueDate.value);
   titleContainer.textContent = selectors.userTitle.value;
   dueDateContainer.textContent += selectors.userDueDate.value;
   prioContainer.textContent += selectors.userPriority.value;
